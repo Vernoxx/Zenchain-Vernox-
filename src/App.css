@@ -1,0 +1,697 @@
+body, html, #root, .App {
+  min-height: 100vh;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  
+  background: #181b23;
+  min-height: 100vh;
+  font-family: 'Vazirmatn', 'Inter', 'sans-serif';
+  position: relative;
+}
+
+/* ----------- HEADER NAV & LINKS ----------- */
+
+.header-nav {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 7px;
+  position: relative;
+  z-index: 15;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  
+}
+
+.site-logo {
+  height: 120px;
+  width: auto;
+  filter: drop-shadow(0 0 28px #00ffe7cc) drop-shadow(0 0 14px #38c9f944);
+  background: transparent;
+  border-radius: 24px;
+  margin-bottom: 0;
+  transition: height 0.2s;
+}
+
+.top-links {
+  display: flex;
+  gap: 22px;
+}
+
+.top-links a {
+  color: #ffe452;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.07em;
+  letter-spacing: 0.02em;
+  padding: 3px 12px;
+  border-radius: 9px;
+  transition: color 0.14s, background 0.14s, text-shadow 0.16s;
+  text-shadow: 0 0 9px #ffe4528c, 0 0 2px #fff;
+  box-shadow: 0 0 10px #ffe4521e;
+}
+.top-links a:hover {
+  color: #181b23;
+  background: #ffe452;
+  text-shadow: none;
+  box-shadow: 0 0 20px #ffe45295;
+}
+
+/* ----------- ✦ HEADER DIVIDER ✦ ----------- */
+.header-divider {
+  width: 100vw;
+  margin: 0;
+  height: 1.5px;
+  min-height: 1px;
+  border-radius: 3px;
+  background: linear-gradient(90deg,#1beed9 3%,#49fc9b 28%,#ffe452 65%,#fff500 100%);
+  box-shadow:
+    0 0 7px #19ffbb,
+    0 0 12px #ffe452ad,
+    0 0 1px #fff,
+    0 1px 16px #27fffe8a;
+  opacity: 0.95;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  animation: divider-blink 3.6s infinite ease-in-out;
+}
+
+@keyframes divider-blink {
+  0%,100% { filter: brightness(1.16) blur(0.1px);}
+  50% { filter: brightness(1.26) blur(0.8px);}
+}
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 600px) {
+  .header-nav {
+    max-width: 95%;
+    padding-top: 6px;
+    padding-bottom: 3px;
+  }
+  .header-divider {
+    height: 1px; 
+  }
+  .site-logo {
+    height: 56px;
+  }
+}
+
+/* ------------------------------------------------- */
+
+.App-header {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.container {
+  margin-top: 200px;
+  background: rgba(30, 38, 65, 0.69);
+  box-shadow: 0 2px 48px #06415c2c;
+  border-radius: 24px;
+  padding: 56px 32px 38px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 340px;
+}
+h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 32px;
+  background: linear-gradient(90deg, #27ff76 16%, #95f9b5 43%, #ffe452 77%, #fff500 97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-blink 1.8s infinite;
+}
+
+@keyframes rainbow-blink {
+  0%, 100% { filter: brightness(95%) drop-shadow(0 0 7px #38c9f9cc);}
+  50% { filter: brightness(120%) drop-shadow(0 0 14px #a4a70499);}
+}
+
+.mine-button {
+  width: 220px;
+  padding: 16px 0;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #fff;
+  background: linear-gradient(90deg, #00ff40 5%, #d6f938 99%);
+  box-shadow: 0 0 20px #03b91b44;
+  cursor: pointer;
+  transition: filter 0.18s, opacity 0.18s;
+  letter-spacing: .05em;
+}
+
+
+.mine-button:disabled {
+  opacity: 0.7;
+  filter: grayscale(50%);
+  cursor: not-allowed;
+}
+
+/* Withdraw Button */
+.withdraw-button {
+  margin-left: 84px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  width: 220px;
+  padding: 14px 0;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #bdf6ff;
+  background: linear-gradient(90deg, #21293a 30%, #3ecde9 100%);
+  opacity: 0.6;
+  cursor: not-allowed;
+  transition: filter 0.2s, opacity 0.2s;
+  box-shadow: 0 0 16px #38c9f944;
+  letter-spacing: .03em;
+}
+
+.token-counter {
+  margin-top: 18px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #fffef8;
+  letter-spacing: .03em;
+  background: rgba(36,41,61,0.36);
+  padding: 9px 28px;
+  border-radius: 13px;
+  box-shadow: 0 0 8px #93fff888;
+}
+
+
+.ztc-unit {
+  color: #ffe452;
+  font-weight: 700;
+  font-size: 1.04em;
+  letter-spacing: 0.06em;
+  margin-right: 2px;
+  margin-left: 4px;
+  text-shadow: 0 0 4px #fff50099;
+}
+
+/* WALLET CONNECTED ALERT */
+.alert-wallet {
+  margin-top: 28px;
+  font-size: 1.07rem;
+  font-weight: 500;
+  color: #00ffd2;
+  background: rgba(16, 39, 47, 0.82);
+  border-radius: 8px;
+  padding: 10px 28px;
+  box-shadow: 0 0 16px #00ffd2b2;
+  animation: fadeInOut 2.5s linear;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px);}
+  15% { opacity: 1; transform: translateY(0);}
+  82% { opacity: 1;}
+  100% { opacity: 0; transform: translateY(12px);}
+}
+.zen-toast-alert-glassy {
+  position: fixed;
+  left: 50%;
+  bottom: 300px;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: rgba(28, 34, 54, 0.90);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #20efb160;
+  padding: 0;
+  min-width: 330px;
+  max-width: 95vw;
+}
+
+.zen-toast-inner {
+  padding: 25px 32px 18px 32px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background: rgba(44, 56, 89, 0.72);
+  backdrop-filter: blur(6px) saturate(180%);
+}
+.zen-toast-title {
+  color: #17ffe4;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.zen-toast-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px 0;
+  border-bottom: 1px dashed #19ffbb28;
+  padding-bottom: 4px;
+}
+.zen-toast-row-after {
+  border-bottom: none;
+}
+.zen-toast-label {
+  color: #b8fff1;
+}
+.zen-toast-value {
+  color: #fff;
+  font-weight: 700;
+}
+.zen-toast-fee {
+  color: #ffe358;
+  font-weight: 800;
+}
+.zen-toast-after {
+  color: #16ff7a;
+  font-weight: 700;
+}
+.zen-toast-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.zen-toast-btn {
+  border: none;
+  border-radius: 7px;
+  background: #202738;
+  color: #d4fff9;
+  font-weight: bold;
+  padding: 8px 28px;
+  font-size: 1.04em;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.zen-toast-btn-confirm {
+  background: linear-gradient(104deg, #29ffb1, #e2ff45);
+  color: #133;
+}
+.zen-toast-btn-confirm:hover {
+  background: linear-gradient(107deg, #20dc83 10%, #faffbf 90%);
+  color: #222;
+}
+.zen-toast-btn-cancel {
+  background: #202738;
+  color: #c7eaff;
+  border: 1px solid #313a55;
+}
+.zen-toast-btn-cancel:hover {
+  background: #181c35;
+  color: #19ffed;
+}
+
+.zen-short-footer {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background: 
+    linear-gradient(90deg, #191e25ee 70%, #222833c5 95%),
+    rgba(20,28,34,0.82);
+  backdrop-filter: blur(10px) saturate(170%);
+  border-top: 1.5px solid #13ffe0ca;
+  box-shadow: 0 -2px 24px 0 #0ff3ff15;
+  z-index: 20;
+  transition: background 0.35s;
+}
+
+.zen-short-footer-inner {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 13px 14px 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border-radius: 0 0 24px 24px;
+  box-shadow: 100 10px 40px 0 #11e7ff14;
+  background: linear-gradient(105deg, #10151cbb 70%, #21293488 100%);
+  backdrop-filter: blur(12px) saturate(140%);
+}
+
+.zen-short-footer-title {
+  font-size: 1.03em;
+  letter-spacing: 0.02em;
+  color: #2fffd6;
+  text-shadow:
+    0 0 8px #00ffe5bb,
+    0 0 2px #00817855;
+  font-weight: 600;
+  margin-right: 7px;
+}
+
+.zen-short-footer-copy {
+  font-size: 0.97em;
+  color: #f0f5ffb1;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  text-shadow:
+    0 0 2px #11e7ff33;
+  margin-left: 8px;
+}
+
+@media (max-width: 520px) {
+  .zen-short-footer-inner {
+    flex-direction: column;
+    gap: 4px;
+    border-radius: 0 0 18px 18px;
+    padding: 11px 0 6px 0;
+  }
+  .zen-short-footer-title,
+  .zen-short-footer-copy {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+body, html, #root, .App {
+  min-height: 100vh;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  
+  background: #181b23;
+  min-height: 100vh;
+  font-family: 'Vazirmatn', 'Inter', 'sans-serif';
+  position: relative;
+}
+
+/* ----------- HEADER NAV & LINKS ----------- */
+
+
+
+/* ================================================= */
+
+
+.header-logout-btn {
+  background: linear-gradient(90deg, #ffe452 55%, #53fff1 100%);
+  color: #1d222d;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  font-size: 1.01em;
+  font-weight: bold;
+  padding: 7px 25px 7px 11px;
+  margin-left: 16px;
+  box-shadow: 0 0 14px #ffe45255, 0 2px 14px #00ffe8a7;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, opacity 0.16s;
+}
+.header-logout-btn:hover {
+  background: linear-gradient(87deg, #fffdbe 20%, #90fff1 90%);
+  color: #008074;
+  box-shadow: 0 0 16px #ffe45299, 0 2px 16px #00ffe966;
+}
+
+.wallet-addr {
+  background: #181b23d0;
+  color: #ffe452;
+  font-size: 0.98em;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 8px;
+  margin-right: 1px;
+}
+
+.logout-text {
+  font-size: 0.93em;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 0.03em;
+}
+.stop-mining-button {
+  background: linear-gradient(140deg, #ff515a, #e94e77);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6em 1.5em;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 3px 8px rgba(233, 78, 119, 0.4);
+}
+
+.stop-mining-button:hover {
+  background: linear-gradient(140deg, #ff686d, #d42b4f);
+  transform: scale(1.05);
+}
+
+.stop-mining-button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(233, 78, 119, 0.5);
+}
+
+
+.boost-miner-box {
+  background: #23283e;
+  border-radius: 14px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 8px 28px 0 #181e314a;
+}
+.boost-card {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #363b5b;
+  padding-bottom: 10px;
+}
+.boost-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 12px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.boost-title {
+  font-weight: bold;
+}
+.boost-price {
+  margin: 8px 0 4px 0;
+  color: #17ffe3;
+}
+.boost-buy-btn {
+  background: #1e92fa;
+  color: white;
+  border: none;
+  padding: 5px 18px;
+  border-radius: 7px;
+  margin-top: 2px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.boost-buy-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.boost-error {
+  color: #ff7070;
+  margin-top: 10px;
+}
+.boost-success {
+  color: #6cf784;
+  margin-top: 10px;
+}
+
+
+.main-flex-dashboard {
+  margin: 0 auto !important;        
+  padding: 0 !important;
+  gap: 32px !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  max-width: 1100px;
+  width: 98vw;
+  box-sizing: border-box;
+  min-width: 320px;
+}
+
+.mining-dashboard-box,
+.boost-miner-cards {
+  margin: 0 !important;           
+}
+
+.App-header {
+  min-height: unset !important;   
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100%;
+  padding-bottom: 0 !important;
+  overflow: visible !important;
+}
+
+.container {
+  padding-top: 16px !important;   
+  padding-bottom: 16px !important;
+}
+
+@media (min-width: 1000px) {
+  .App-header .container {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .main-flex-dashboard { flex-direction: column !important; align-items: center !important; gap: 19px !important;}
+  .mining-dashboard-box, .boost-miner-cards {max-width: 96vw;}
+}
+
+
+
+
+html, body, #root, .App {
+  min-height: 100vh !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow-x: hidden !important;
+  background: #181b23; 
+}
+
+body {
+  background: #181b23 !important;
+}
+
+
+.App {
+  min-height: 100vh !important;
+  height: 100vh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.zen-short-footer {
+  margin-top: auto !important;  
+  position: sticky !important;
+  bottom: 0;
+}
+
+
+/* ============ Mystery NFT Box (Dashboard Inline, Bottom Left) ============ */
+.mystery-nft-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  background: linear-gradient(120deg,#21174c94 36%, #1cf1e555 90%);
+  box-shadow: 0 0 18px #23f6f664, 0 2px 16px #0fffee29;
+  border: 2px solid #32ede677;
+  border-radius: 14px 18px 16px 14px;
+  margin-top: 0px;
+  margin-bottom: 0;
+  margin-left: -30px;
+  padding: 12px 20px 12px 13px;
+  gap: 13px;
+  height: 83px;
+  min-width: 195px;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s;
+  z-index: 3;
+}
+.mystery-nft-inline:hover {
+  background: linear-gradient(120deg,#251e56cc 25%, #04ffe2cc 100%);
+  box-shadow: 0 0 32px #49fff577, 0 2px 32px #1bede429;
+}
+.mystery-nft-img-inline {
+  width: 54px;
+  height: 54px;
+  filter:
+    drop-shadow(0 0 16px #5debf8c8)
+    drop-shadow(0 0 26px #06ffc499)
+    brightness(1.15) saturate(1.7);
+  border-radius: 12px;
+  pointer-events: none;
+  background: transparent;
+}
+.mystery-nft-info-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.mystery-nft-title-inline {
+  font-size: 1.02em;
+  font-weight: bold;
+  color: #21ffe0;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 9px #11f1d388, 0 0 2px #1e69b3;
+  margin-bottom: 2px;
+  font-family: inherit;
+}
+.mystery-nft-soon-inline {
+  font-size: .93em;
+  color: #fffb99;
+  background: linear-gradient(90deg, #ffe45277 38%, #25ffe6 95%);
+  padding: 2.1px 13px 3px 9px;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  box-shadow: 0 0 6px #fff46544;
+  opacity: 0.91;
+  font-family: inherit;
+}
+@media (max-width: 1000px) {
+  .mystery-nft-inline {
+    padding: 8px 13px 8px 9px;
+    margin-left: 0;
+    margin-top: 32px;
+    gap: 8px;
+    height: 63px;
+    min-width: 120px;
+  }
+  .mystery-nft-img-inline { width: 38px; height: 38px; }
+}
+@media (max-width: 700px) {
+  .main-flex-dashboard { flex-direction: column!important; }
+  .mystery-nft-inline {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: 19px 0 0 0;
+    border-radius: 17px;
+    gap: 8px;
+    height: 48px;
+    padding: 6px 6vw 6px 6vw;
+    min-width: 0;
+  }
+  .mystery-nft-img-inline { width: 27px; height: 27px; }
+  .mystery-nft-title-inline { font-size: .92em;}
+}
